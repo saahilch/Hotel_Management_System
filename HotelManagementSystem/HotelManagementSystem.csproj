@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5C41454-C054-423C-BD75-C69534B41881}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HotelManagementSystem</RootNamespace>
+    <AssemblyName>HotelManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HotelManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataset\DataSetBookingMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBookingMaster.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataset\DatasetRoomMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatasetRoomMaster.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataset\DataSetRoomType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRoomType.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDataset\DataSetSigninSignUp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSigninSignUp.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BookingMasterrtcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\BookingMasterrtcs.Designer.cs">
+      <DependentUpon>BookingMasterrtcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RoomMasterrt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RoomMasterrt.Designer.cs">
+      <DependentUpon>RoomMasterrt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RoomTypert.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\RoomTypert.Designer.cs">
+      <DependentUpon>RoomTypert.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\SiginSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SiginSignUp.Designer.cs">
+      <DependentUpon>SiginSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\BookingMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\BookingMaster.Designer.cs">
+      <DependentUpon>BookingMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseXSD\HotelManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseXSD\HotelManagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\RoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\RoomType.Designer.cs">
+      <DependentUpon>RoomType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsForms\RoomMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\RoomMaster.Designer.cs">
+      <DependentUpon>RoomMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\SignUpSignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\SignUpSignIn.Designer.cs">
+      <DependentUpon>SignUpSignIn.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\BookingMasterReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BookingMasterrtcs.resx">
+      <DependentUpon>BookingMasterrtcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RoomMasterReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RoomMasterrt.resx">
+      <DependentUpon>RoomMasterrt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RoomTypert.resx">
+      <DependentUpon>RoomTypert.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RoomTypeReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SiginSignUp.resx">
+      <DependentUpon>SiginSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SignInSignUpReport.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\BookingMaster.resx">
+      <DependentUpon>BookingMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\RoomMaster.resx">
+      <DependentUpon>RoomMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\RoomType.resx">
+      <DependentUpon>RoomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WindowsForms\SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\SignUpSignIn.resx">
+      <DependentUpon>SignUpSignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataBaseXSD\HotelManagementDataSet.xsc">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseXSD\HotelManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataBaseXSD\HotelManagementDataSet.xss">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseXSD\HotelManagementDataSet1.xsc">
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseXSD\HotelManagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelManagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataBaseXSD\HotelManagementDataSet1.xss">
+      <DependentUpon>HotelManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HotelManagementDataSet.xsc">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelManagementDataSet.xss">
+      <DependentUpon>HotelManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BookingMaster.datasource" />
+    <None Include="Properties\DataSources\Dashboard.datasource" />
+    <None Include="Properties\DataSources\DataSet1.datasource" />
+    <None Include="Properties\DataSources\DataSet1.RoomTypeDataTable.datasource" />
+    <None Include="Properties\DataSources\DataSet1.RoomTypeRow.datasource" />
+    <None Include="Properties\DataSources\DataSet1.RoomTypeRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\DataSet1.RoomTypeRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\DataSet2.datasource" />
+    <None Include="Properties\DataSources\DataSet2.RoomTypeDataTable.datasource" />
+    <None Include="Properties\DataSources\DataSet2.RoomTypeRow.datasource" />
+    <None Include="Properties\DataSources\DataSet2.RoomTypeRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\DataSet2.RoomTypeRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\DataSet3.datasource" />
+    <None Include="Properties\DataSources\DataSet3.RoomMasterDataTable.datasource" />
+    <None Include="Properties\DataSources\DataSet3.RoomMasterRow.datasource" />
+    <None Include="Properties\DataSources\DataSet3.RoomMasterRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\DataSet3.RoomMasterRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\DataSet4.datasource" />
+    <None Include="Properties\DataSources\HotelManagementDataSet.datasource" />
+    <None Include="Properties\DataSources\HotelManagementDataSet.RoomMasterDataTable.datasource" />
+    <None Include="Properties\DataSources\HotelManagementDataSet.RoomMasterRow.datasource" />
+    <None Include="Properties\DataSources\HotelManagementDataSet.RoomMasterRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\HotelManagementDataSet.RoomMasterRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet1TableAdapters.RoomTypeTableAdapter.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet1TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet1TableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet2TableAdapters.RoomTypeTableAdapter.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet2TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet2TableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet3TableAdapters.RoomMasterTableAdapter.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet3TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.DataSet3TableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.HotelManagementDataSetTableAdapters.RoomMasterTableAdapter.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.HotelManagementDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.HotelManagementDataSetTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\HotelManagementSystem.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\RoomEntities.datasource" />
+    <None Include="Properties\DataSources\RoomMaster.datasource" />
+    <None Include="Properties\DataSources\RoomType.datasource" />
+    <None Include="Properties\DataSources\SignIn.datasource" />
+    <None Include="Properties\DataSources\SignUpSignIn.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ReportDataset\DataSetBookingMaster.xsc">
+      <DependentUpon>DataSetBookingMaster.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DataSetBookingMaster.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBookingMaster.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDataset\DataSetBookingMaster.xss">
+      <DependentUpon>DataSetBookingMaster.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DatasetRoomMaster.xsc">
+      <DependentUpon>DatasetRoomMaster.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DatasetRoomMaster.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatasetRoomMaster.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDataset\DatasetRoomMaster.xss">
+      <DependentUpon>DatasetRoomMaster.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DataSetRoomType.xsc">
+      <DependentUpon>DataSetRoomType.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DataSetRoomType.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRoomType.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDataset\DataSetRoomType.xss">
+      <DependentUpon>DataSetRoomType.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DataSetSigninSignUp.xsc">
+      <DependentUpon>DataSetSigninSignUp.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataset\DataSetSigninSignUp.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSigninSignUp.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportDataset\DataSetSigninSignUp.xss">
+      <DependentUpon>DataSetSigninSignUp.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
