@@ -52,6 +52,7 @@
             this.btn_pannel_roomtype = new System.Windows.Forms.Button();
             this.btn_pannel_bookingmaster = new System.Windows.Forms.Button();
             this.btn_pannel_roommaster = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -68,7 +69,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(36)))), ((int)(((byte)(107)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
@@ -86,17 +87,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(249, 86);
+            this.label2.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(265, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(342, 28);
+            this.label2.Size = new System.Drawing.Size(379, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Click Here To Display Report";
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(134)))), ((int)(((byte)(125)))));
+            this.panel8.BackColor = System.Drawing.Color.ForestGreen;
             this.panel8.Controls.Add(this.pictureBox3);
             this.panel8.Controls.Add(this.btn_report_bookingmaster);
             this.panel8.Location = new System.Drawing.Point(811, 381);
@@ -116,19 +117,21 @@
             // 
             // btn_report_bookingmaster
             // 
-            this.btn_report_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_report_bookingmaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_report_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_report_bookingmaster.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_report_bookingmaster.ForeColor = System.Drawing.Color.White;
             this.btn_report_bookingmaster.Location = new System.Drawing.Point(12, 135);
             this.btn_report_bookingmaster.Name = "btn_report_bookingmaster";
             this.btn_report_bookingmaster.Size = new System.Drawing.Size(223, 33);
             this.btn_report_bookingmaster.TabIndex = 1;
             this.btn_report_bookingmaster.Text = "Booking Master";
-            this.btn_report_bookingmaster.UseVisualStyleBackColor = true;
+            this.btn_report_bookingmaster.UseVisualStyleBackColor = false;
             this.btn_report_bookingmaster.Click += new System.EventHandler(this.btn_report_bookingmaster_Click);
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(134)))), ((int)(((byte)(125)))));
+            this.panel7.BackColor = System.Drawing.Color.ForestGreen;
             this.panel7.Controls.Add(this.pictureBox5);
             this.panel7.Controls.Add(this.btn_report_roommaster);
             this.panel7.Location = new System.Drawing.Point(475, 381);
@@ -149,19 +152,21 @@
             // 
             // btn_report_roommaster
             // 
-            this.btn_report_roommaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_report_roommaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_report_roommaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_report_roommaster.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_report_roommaster.ForeColor = System.Drawing.Color.White;
             this.btn_report_roommaster.Location = new System.Drawing.Point(11, 138);
             this.btn_report_roommaster.Name = "btn_report_roommaster";
             this.btn_report_roommaster.Size = new System.Drawing.Size(226, 33);
             this.btn_report_roommaster.TabIndex = 1;
             this.btn_report_roommaster.Text = "Room Master";
-            this.btn_report_roommaster.UseVisualStyleBackColor = true;
+            this.btn_report_roommaster.UseVisualStyleBackColor = false;
             this.btn_report_roommaster.Click += new System.EventHandler(this.btn_report_roommaster_Click);
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(94)))), ((int)(((byte)(151)))));
+            this.panel6.BackColor = System.Drawing.Color.ForestGreen;
             this.panel6.Controls.Add(this.pictureBox4);
             this.panel6.Controls.Add(this.btn_report_roomtype);
             this.panel6.Location = new System.Drawing.Point(811, 152);
@@ -181,19 +186,21 @@
             // 
             // btn_report_roomtype
             // 
-            this.btn_report_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_report_roomtype.BackColor = System.Drawing.Color.Transparent;
+            this.btn_report_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_report_roomtype.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_report_roomtype.ForeColor = System.Drawing.Color.White;
             this.btn_report_roomtype.Location = new System.Drawing.Point(14, 138);
             this.btn_report_roomtype.Name = "btn_report_roomtype";
             this.btn_report_roomtype.Size = new System.Drawing.Size(220, 33);
             this.btn_report_roomtype.TabIndex = 1;
             this.btn_report_roomtype.Text = "Room Type";
-            this.btn_report_roomtype.UseVisualStyleBackColor = true;
+            this.btn_report_roomtype.UseVisualStyleBackColor = false;
             this.btn_report_roomtype.Click += new System.EventHandler(this.btn_report_roomtype_Click);
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(94)))), ((int)(((byte)(151)))));
+            this.panel4.BackColor = System.Drawing.Color.ForestGreen;
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.btn_report_siginup);
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(177)))), ((int)(((byte)(135)))));
@@ -215,9 +222,9 @@
             // btn_report_siginup
             // 
             this.btn_report_siginup.BackColor = System.Drawing.Color.Transparent;
-            this.btn_report_siginup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_report_siginup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_report_siginup.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_report_siginup.ForeColor = System.Drawing.Color.Black;
+            this.btn_report_siginup.ForeColor = System.Drawing.Color.White;
             this.btn_report_siginup.Location = new System.Drawing.Point(11, 133);
             this.btn_report_siginup.Name = "btn_report_siginup";
             this.btn_report_siginup.Size = new System.Drawing.Size(226, 38);
@@ -228,7 +235,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(148)))), ((int)(((byte)(139)))));
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(243, 0);
@@ -249,7 +256,8 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(197)))), ((int)(((byte)(204)))));
+            this.panel2.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.btn_pannel_dashboard);
             this.panel2.Controls.Add(this.btn_report_logout);
@@ -274,63 +282,88 @@
             // 
             // btn_pannel_dashboard
             // 
-            this.btn_pannel_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pannel_dashboard.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_pannel_dashboard.Location = new System.Drawing.Point(12, 178);
+            this.btn_pannel_dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pannel_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_pannel_dashboard.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pannel_dashboard.ForeColor = System.Drawing.Color.White;
+            this.btn_pannel_dashboard.Location = new System.Drawing.Point(0, 178);
             this.btn_pannel_dashboard.Name = "btn_pannel_dashboard";
-            this.btn_pannel_dashboard.Size = new System.Drawing.Size(220, 33);
+            this.btn_pannel_dashboard.Size = new System.Drawing.Size(243, 49);
             this.btn_pannel_dashboard.TabIndex = 7;
             this.btn_pannel_dashboard.Text = "Dashboard";
-            this.btn_pannel_dashboard.UseVisualStyleBackColor = true;
+            this.btn_pannel_dashboard.UseVisualStyleBackColor = false;
             this.btn_pannel_dashboard.Click += new System.EventHandler(this.btn_pannel_dashboard_Click);
             // 
             // btn_report_logout
             // 
-            this.btn_report_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_report_logout.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_report_logout.Location = new System.Drawing.Point(12, 574);
+            this.btn_report_logout.BackColor = System.Drawing.Color.Transparent;
+            this.btn_report_logout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_report_logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_report_logout.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_report_logout.ForeColor = System.Drawing.Color.White;
+            this.btn_report_logout.Location = new System.Drawing.Point(0, 573);
             this.btn_report_logout.Name = "btn_report_logout";
-            this.btn_report_logout.Size = new System.Drawing.Size(220, 33);
+            this.btn_report_logout.Size = new System.Drawing.Size(243, 46);
             this.btn_report_logout.TabIndex = 3;
             this.btn_report_logout.Text = "Logout";
-            this.btn_report_logout.UseVisualStyleBackColor = true;
+            this.btn_report_logout.UseVisualStyleBackColor = false;
             this.btn_report_logout.Click += new System.EventHandler(this.btn_report_logout_Click);
             // 
             // btn_pannel_roomtype
             // 
-            this.btn_pannel_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pannel_roomtype.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_pannel_roomtype.Location = new System.Drawing.Point(12, 247);
+            this.btn_pannel_roomtype.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pannel_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_pannel_roomtype.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pannel_roomtype.ForeColor = System.Drawing.Color.White;
+            this.btn_pannel_roomtype.Location = new System.Drawing.Point(0, 246);
             this.btn_pannel_roomtype.Name = "btn_pannel_roomtype";
-            this.btn_pannel_roomtype.Size = new System.Drawing.Size(220, 33);
+            this.btn_pannel_roomtype.Size = new System.Drawing.Size(243, 47);
             this.btn_pannel_roomtype.TabIndex = 6;
             this.btn_pannel_roomtype.Text = "Room Type";
-            this.btn_pannel_roomtype.UseVisualStyleBackColor = true;
+            this.btn_pannel_roomtype.UseVisualStyleBackColor = false;
             this.btn_pannel_roomtype.Click += new System.EventHandler(this.btn_pannel_roomtype_Click);
             // 
             // btn_pannel_bookingmaster
             // 
-            this.btn_pannel_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pannel_bookingmaster.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_pannel_bookingmaster.Location = new System.Drawing.Point(12, 399);
+            this.btn_pannel_bookingmaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pannel_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_pannel_bookingmaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pannel_bookingmaster.ForeColor = System.Drawing.Color.White;
+            this.btn_pannel_bookingmaster.Location = new System.Drawing.Point(0, 399);
             this.btn_pannel_bookingmaster.Name = "btn_pannel_bookingmaster";
-            this.btn_pannel_bookingmaster.Size = new System.Drawing.Size(220, 33);
+            this.btn_pannel_bookingmaster.Size = new System.Drawing.Size(243, 51);
             this.btn_pannel_bookingmaster.TabIndex = 4;
             this.btn_pannel_bookingmaster.Text = "Booking Master";
-            this.btn_pannel_bookingmaster.UseVisualStyleBackColor = true;
+            this.btn_pannel_bookingmaster.UseVisualStyleBackColor = false;
             this.btn_pannel_bookingmaster.Click += new System.EventHandler(this.btn_pannel_bookingmaster_Click);
             // 
             // btn_pannel_roommaster
             // 
-            this.btn_pannel_roommaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pannel_roommaster.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_pannel_roommaster.Location = new System.Drawing.Point(12, 323);
+            this.btn_pannel_roommaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pannel_roommaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_pannel_roommaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pannel_roommaster.ForeColor = System.Drawing.Color.White;
+            this.btn_pannel_roommaster.Location = new System.Drawing.Point(0, 323);
             this.btn_pannel_roommaster.Name = "btn_pannel_roommaster";
-            this.btn_pannel_roommaster.Size = new System.Drawing.Size(220, 33);
+            this.btn_pannel_roommaster.Size = new System.Drawing.Size(243, 46);
             this.btn_pannel_roommaster.TabIndex = 5;
             this.btn_pannel_roommaster.Text = "Room Master";
-            this.btn_pannel_roommaster.UseVisualStyleBackColor = true;
+            this.btn_pannel_roommaster.UseVisualStyleBackColor = false;
             this.btn_pannel_roommaster.Click += new System.EventHandler(this.btn_pannel_roommaster_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(240, 43);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Admin Pannel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Report
             // 
@@ -386,5 +419,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button button1;
     }
 }

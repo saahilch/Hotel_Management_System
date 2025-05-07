@@ -89,46 +89,175 @@ namespace HotelManagementSystem
 
             // Disable adding rows manually by the user
             rm_datagrideView.AllowUserToAddRows = false;
+            StyleDataGridView();
+            
+
+
+
         }
         /*now add delete btn on datagrideview */
-        
-        
+        private void StyleDataGridView()
+        {
+            rm_datagrideView.EnableHeadersVisualStyles = false;
+
+            // Header style
+            rm_datagrideView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGreen;
+            rm_datagrideView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            rm_datagrideView.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 14F,FontStyle.Bold);
+            rm_datagrideView.ColumnHeadersHeight = 40;
+
+            // Row style
+            rm_datagrideView.DefaultCellStyle.BackColor = Color.White;
+            rm_datagrideView.DefaultCellStyle.ForeColor = Color.Black;
+            rm_datagrideView.DefaultCellStyle.Font = new Font("Verdana", 10F, FontStyle.Bold);
+            rm_datagrideView.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
+            rm_datagrideView.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // Grid settings
+            rm_datagrideView.RowTemplate.Height = 20;
+            rm_datagrideView.GridColor = Color.LightGray;
+            rm_datagrideView.BorderStyle = BorderStyle.Fixed3D;
+            //dataGridViewBookings.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            rm_datagrideView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+
+        //private void btn_rm_save_Click_1(object sender, EventArgs e)
+        //{
+        //    // Check if Room Type or Room Number fields are empty
+        //    if (string.IsNullOrWhiteSpace(cmbRoomType.Text) ||
+        //         string.IsNullOrWhiteSpace(txtRoomNo.Text))
+        //    {
+        //        MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return;
+        //    }
+
+        //    // Validate if Room No is a positive integer
+        //    if (!int.TryParse(txtRoomNo.Text, out int roomNo) || roomNo <= 0)
+        //    {
+        //        MessageBox.Show("Room No must be a valid positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return;
+        //    }
+
+        //    // Establish SQL connection
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        try
+        //        {
+        //            // Open the database connection
+        //            conn.Open();
+
+        //            // Check if the room number already exists in the RoomMaster table
+        //            string checkQuery = "SELECT COUNT(*) FROM RoomMaster WHERE RoomNo = @RoomNo";
+        //            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+        //            {
+        //                // Pass Room No as a parameter to prevent SQL Injection
+        //                checkCmd.Parameters.AddWithValue("@RoomNo", roomNo);
+
+        //                // Execute the query and get the count of matching records
+        //                int count = (int)checkCmd.ExecuteScalar();
+
+        //                // If the room number already exists, show an error message and stop execution
+        //                if (count > 0)
+        //                {
+        //                    MessageBox.Show("Room No already exists!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                    return;
+        //                }
+        //            }
+
+        //            // Insert the new room record into the RoomMaster table
+        //            string insertQuery = @"INSERT INTO RoomMaster (RoomType, RoomNo, CreatedOn, CreatedBy, ModifyOn, ModifyBy, Status) 
+        //                           VALUES (@RoomType, @RoomNo, GETDATE(), 'Admin', NULL, NULL, 'Active')";
+
+        //            using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
+        //            {
+        //                // Pass Room Type and Room No as parameters
+        //                insertCmd.Parameters.AddWithValue("@RoomType", cmbRoomType.Text);
+        //                insertCmd.Parameters.AddWithValue("@RoomNo", roomNo);
+
+        //                // Execute the insert query
+        //                insertCmd.ExecuteNonQuery();
+        //            }
+
+        //            // Show success message to the user
+        //            MessageBox.Show("Room Details Saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //            // Refresh the DataGridView to reflect the new data
+        //            LoadRoomMaster();
+
+        //            // Clear the Room No input field after saving
+        //            txtRoomNo.Clear();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Handle any database-related errors and show an error message
+        //            MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
+
         private void btn_rm_save_Click_1(object sender, EventArgs e)
         {
-            // Check if Room Type or Room Number fields are empty
             if (string.IsNullOrWhiteSpace(cmbRoomType.Text) ||
-                 string.IsNullOrWhiteSpace(txtRoomNo.Text))
+                string.IsNullOrWhiteSpace(txtRoomNo.Text))
             {
                 MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validate if Room No is a positive integer
             if (!int.TryParse(txtRoomNo.Text, out int roomNo) || roomNo <= 0)
             {
                 MessageBox.Show("Room No must be a valid positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Establish SQL connection
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
-                    // Open the database connection
                     conn.Open();
 
-                    // Check if the room number already exists in the RoomMaster table
+                    // Step 1: Get the allowed Quantity for the selected RoomType
+                    int allowedQuantity = 0;
+                    string quantityQuery = "SELECT Quantity FROM RoomType WHERE RoomType = @RoomType";
+                    using (SqlCommand quantityCmd = new SqlCommand(quantityQuery, conn))
+                    {
+                        quantityCmd.Parameters.AddWithValue("@RoomType", cmbRoomType.Text);
+                        object result = quantityCmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            allowedQuantity = Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selected Room Type not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    // Step 2: Count current number of rooms of this RoomType in RoomMaster
+                    int currentCount = 0;
+                    string countQuery = "SELECT COUNT(*) FROM RoomMaster WHERE RoomType = @RoomType";
+                    using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                    {
+                        countCmd.Parameters.AddWithValue("@RoomType", cmbRoomType.Text);
+                        currentCount = (int)countCmd.ExecuteScalar();
+                    }
+
+                    // Step 3: Check if adding one more room exceeds the quantity
+                    if (currentCount >= allowedQuantity)
+                    {
+                        MessageBox.Show("Room No exceeded. Kindly check the Quantity limit in RoomType.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Step 4: Check if the room number already exists
                     string checkQuery = "SELECT COUNT(*) FROM RoomMaster WHERE RoomNo = @RoomNo";
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        // Pass Room No as a parameter to prevent SQL Injection
                         checkCmd.Parameters.AddWithValue("@RoomNo", roomNo);
-
-                        // Execute the query and get the count of matching records
                         int count = (int)checkCmd.ExecuteScalar();
 
-                        // If the room number already exists, show an error message and stop execution
                         if (count > 0)
                         {
                             MessageBox.Show("Room No already exists!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -136,32 +265,23 @@ namespace HotelManagementSystem
                         }
                     }
 
-                    // Insert the new room record into the RoomMaster table
+                    // Step 5: Insert the room
                     string insertQuery = @"INSERT INTO RoomMaster (RoomType, RoomNo, CreatedOn, CreatedBy, ModifyOn, ModifyBy, Status) 
                                    VALUES (@RoomType, @RoomNo, GETDATE(), 'Admin', NULL, NULL, 'Active')";
 
                     using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
                     {
-                        // Pass Room Type and Room No as parameters
                         insertCmd.Parameters.AddWithValue("@RoomType", cmbRoomType.Text);
                         insertCmd.Parameters.AddWithValue("@RoomNo", roomNo);
-
-                        // Execute the insert query
                         insertCmd.ExecuteNonQuery();
                     }
 
-                    // Show success message to the user
                     MessageBox.Show("Room Details Saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Refresh the DataGridView to reflect the new data
                     LoadRoomMaster();
-
-                    // Clear the Room No input field after saving
                     txtRoomNo.Clear();
                 }
                 catch (Exception ex)
                 {
-                    // Handle any database-related errors and show an error message
                     MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -190,9 +310,7 @@ namespace HotelManagementSystem
 
         private void bookingMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show();
+           
 
         }
 
@@ -228,7 +346,7 @@ namespace HotelManagementSystem
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE RoomMaster SET Status = 'Inactive' WHERE RoomType = @RoomType AND RoomNo = @RoomNo";
+                    string query = "UPDATE RoomMaster SET Status = 'UnderMaintenance' WHERE RoomType = @RoomType AND RoomNo = @RoomNo";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@RoomType", roomType);
@@ -260,8 +378,8 @@ namespace HotelManagementSystem
         {
             if (e.ColumnIndex == rm_datagrideView.Columns["btnDelete"].Index && e.RowIndex >= 0)
             {
-                string roomType = rm_datagrideView.Rows[e.RowIndex].Cells["roomTypeDataGridViewTextBoxColumn"].Value.ToString();
-                string roomNo = rm_datagrideView.Rows[e.RowIndex].Cells["roomNoDataGridViewTextBoxColumn"].Value.ToString(); // Fetch Room No
+                string roomType = rm_datagrideView.Rows[e.RowIndex].Cells["RoomType"].Value.ToString();
+                string roomNo = rm_datagrideView.Rows[e.RowIndex].Cells["RoomNo"].Value.ToString(); // Fetch Room No
                 
                 /*Code For MsgBox To Click On Delete Btn To popup  msg */
                 DialogResult result = MessageBox.Show("Do You Want To Inactive These Record?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -289,46 +407,6 @@ namespace HotelManagementSystem
             LoadRoomMaster(); // Reload the grid after deletion
         }
 
-        //private void btn_rm_search_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtbox_rm_search.Text))
-        //    {
-        //        MessageBox.Show("Please Enter A  Valid Room Type To Search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return;
-        //    }
-
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            conn.Open();
-        //            string query = "SELECT RoomType,RoomNo FROM RoomMaster WHERE RoomType = @RoomType";
-
-        //            using (SqlCommand cmd = new SqlCommand(query, conn))
-        //            {
-        //                cmd.Parameters.AddWithValue("@RoomType", txtbox_rm_search.Text);
-        //                SqlDataReader reader = cmd.ExecuteReader();
-
-        //                if (reader.Read()) // If data is found, populate text fields
-        //                {
-        //                    cmbRoomType.Text = txtbox_rm_search.Text; // Keep the same room type
-        //                    txtRoomNo.Text = reader["RoomNo"].ToString();
-        //                    //txtQuantity.Text = reader["Quantity"].ToString();
-        //                    //txtCapacity.Text = reader["Capacity"].ToString();
-        //                    //txtPrice.Text = reader["Price"].ToString();
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Room Type not found!", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //}
 
         private void LoadRoomMaster()
         {
@@ -412,8 +490,9 @@ namespace HotelManagementSystem
         private void btn_bookingmaster_Click(object sender, EventArgs e)
         {
             this.Hide(); // Hide current form
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show(); // Show the previous form
+            RoomStatusForm roomStatusForm = new RoomStatusForm();
+            roomStatusForm.Show(); // Show the previous form
+
         }
 
         private void btn_rm_reportmaster_Click(object sender, EventArgs e)
@@ -426,6 +505,13 @@ namespace HotelManagementSystem
         private void cmbRoomType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminMaster adminMaster = new AdminMaster();
+            adminMaster.Show(); // Show the previous form
         }
     }
 }

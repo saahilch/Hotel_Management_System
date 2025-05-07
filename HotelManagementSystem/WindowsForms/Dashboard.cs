@@ -80,11 +80,15 @@ namespace HotelManagementSystem
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            this.Hide(); // Hide current form
+            DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            SignIn signIn = new SignIn();
-
-            signIn.Show(); // Show the previous form
+            if (result == DialogResult.Yes)
+            {
+                SignIn signIn = new SignIn();
+                signIn.WindowState = this.WindowState;
+                signIn.Show();
+                this.Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -96,13 +100,24 @@ namespace HotelManagementSystem
 
         private void btn_dash_bookingMaster_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide current form
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show(); // Show the previous form
+            //this.Hide(); // Hide current form
+            //BookingMaster bookingMaster = new BookingMaster();
+            //bookingMaster.Show(); // Show the previous form
+            this.Hide();
+            RoomStatusForm roomStatusForm = new RoomStatusForm();
+            roomStatusForm.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminMaster adminMaster = new AdminMaster();
+            adminMaster.Show();
 
         }
     }

@@ -73,18 +73,47 @@ namespace HotelManagementSystem
 
         private void HotelManagementSystem_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hotelManagementDataSet2.RoomType' table. You can move, or remove it, as needed.
+            
             roomType_dataGrideView.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 13, FontStyle.Bold);
             roomType_dataGrideView.DefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             LoadRoomType(); // Load Room Type Data
+            StyleDataGridView();
+
         }
+        private void StyleDataGridView()
+        {
+            roomType_dataGrideView.EnableHeadersVisualStyles = false;
+
+            // Header style
+            roomType_dataGrideView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGreen;
+            roomType_dataGrideView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            roomType_dataGrideView.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            roomType_dataGrideView.ColumnHeadersHeight = 40;
+
+            // Row style
+            roomType_dataGrideView.DefaultCellStyle.BackColor = Color.White;
+            roomType_dataGrideView.DefaultCellStyle.ForeColor = Color.Black;
+            roomType_dataGrideView.DefaultCellStyle.Font = new Font("Verdana", 10F, FontStyle.Bold);
+            roomType_dataGrideView.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
+            roomType_dataGrideView.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // Grid settings
+            roomType_dataGrideView.RowTemplate.Height = 35;
+            roomType_dataGrideView.GridColor = Color.LightGray;
+            roomType_dataGrideView.BorderStyle = BorderStyle.Fixed3D;
+            //dataGridViewBookings.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            roomType_dataGrideView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
 
         // Delete Row Logic (Marks Status as Inactive instead of deleting)
         private void roomType_dataGrideView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == roomType_dataGrideView.Columns["Action"].Index && e.RowIndex >= 0)
             {
-                var cellValue = roomType_dataGrideView.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn4"].Value;
+                //string roomTypeName = roomType_dataGrideView.Rows[e.RowIndex].Cells["GuestFirstName"].Value.ToString();
+
+                string cellValue = roomType_dataGrideView.Rows[e.RowIndex].Cells["RoomType"].Value.ToString();
 
                 if (cellValue == null)
                 {
@@ -101,7 +130,7 @@ namespace HotelManagementSystem
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        string query = "UPDATE RoomType SET Status = 'Inactive' WHERE RoomType = @RoomType";
+                        string query = "UPDATE RoomType SET Status = 'UnderMaintance' WHERE RoomType = @RoomType";
                         SqlCommand cmd = new SqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@RoomType", roomType);
                         cmd.ExecuteNonQuery();
@@ -119,7 +148,9 @@ namespace HotelManagementSystem
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+                // string query = "SELECT RoomType, Quantity, Capacity, Price, Status FROM RoomType WHERE Status = 'Active'";
                 string query = "SELECT RoomType, Quantity, Capacity, Price, Status FROM RoomType WHERE Status = 'Active'";
+
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -183,9 +214,9 @@ namespace HotelManagementSystem
 
             if (result == DialogResult.Yes)
             {
-                SignUpSignIn signUpSignIn = new SignUpSignIn();
-                signUpSignIn.WindowState = this.WindowState;
-                signUpSignIn.Show();
+                SignIn signIn = new SignIn();
+                signIn.WindowState = this.WindowState;
+                signIn.Show();
                 this.Close();
             }
 
@@ -211,9 +242,9 @@ namespace HotelManagementSystem
         private void button2_Click(object sender, EventArgs e)
         {
 
-            this.Hide(); // Hide current form
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show(); // Show the previous form
+            //this.Hide(); // Hide current form
+            //BookingMaster bookingMaster = new BookingMaster();
+            //bookingMaster.Show(); // Show the previous form
         }
 
         private void dashRoomMaster_Click(object sender, EventArgs e)
@@ -264,9 +295,9 @@ namespace HotelManagementSystem
 
         private void bookingMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide current form
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show(); // Show the previous form
+            //this.Hide(); // Hide current form
+            //BookingMaster bookingMaster = new BookingMaster();
+            //bookingMaster.Show(); // Show the previous form
         }
 
         private void btn_rt_reportMaster_Click(object sender, EventArgs e)
@@ -296,10 +327,7 @@ namespace HotelManagementSystem
 
         private void btn_dashboard_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Dashboard dashboard = new Dashboard();
-            //dashboard.WindowState = this.WindowState;
-            dashboard.Show();
+           
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -309,18 +337,15 @@ namespace HotelManagementSystem
 
         private void btn_roomtype_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide current form
-            RoomMaster roomMaster = new RoomMaster();
-            roomMaster.Show(); // Show the previous form
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Hide current form
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show(); // Show the previous form
-        }
 
+            
+        }
+         
         private void btn_Serch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtbox_serch.Text))
@@ -353,13 +378,57 @@ namespace HotelManagementSystem
 
         private void btn_rt_reportmaster_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            Report report = new Report();
-            report.Show(); // Show the previous form
+           
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btn_rt_dashboard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard = new Dashboard();
+            //dashboard.WindowState = this.WindowState;
+            dashboard.Show();
+        }
+
+        private void btn_rt_roommaster_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide current form
+            RoomMaster roomMaster = new RoomMaster();
+            roomMaster.Show(); // Show the previous form
+        }
+
+        private void btn_rt_bookingmaster_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            RoomStatusForm roomStatusForm = new RoomStatusForm();
+            roomStatusForm.Show();
+        }
+
+        private void btn_rt_reportmaster_Click_2(object sender, EventArgs e)
+        {
+            this.Hide();
+            Report report = new Report();
+            report.Show(); // Show the previous form
+
+
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide current form
+            AdminMaster adminMaster = new AdminMaster();
+            adminMaster.Show(); // Show the previous form
+
 
         }
     }

@@ -87,7 +87,7 @@
             // 
             // btn_signIn_SignIn
             // 
-            this.btn_signIn_SignIn.BackColor = System.Drawing.Color.MediumOrchid;
+            this.btn_signIn_SignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
             this.btn_signIn_SignIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_signIn_SignIn.Font = new System.Drawing.Font("Verdana", 15F);
             this.btn_signIn_SignIn.ForeColor = System.Drawing.Color.Black;
@@ -101,7 +101,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightPink;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label5);
@@ -147,7 +147,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Myanmar Text", 27F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label5.ForeColor = System.Drawing.Color.DarkGray;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(475, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(343, 80);
@@ -198,7 +198,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.MediumOrchid;
+            this.panel2.BackColor = System.Drawing.Color.DarkGreen;
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -257,7 +257,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(93)))), ((int)(((byte)(165)))));
+            this.BackColor = System.Drawing.Color.DarkGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1362, 703);
             this.Controls.Add(this.panel1);

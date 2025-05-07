@@ -37,21 +37,15 @@
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_rm_reportmaster = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_rm_bookingmaster = new System.Windows.Forms.Button();
-            this.btn_rm_roomtype = new System.Windows.Forms.Button();
-            this.btn_rm_dashboard = new System.Windows.Forms.Button();
             this.btn_rt_logout = new System.Windows.Forms.Button();
+            this.btn_rm_dashboard = new System.Windows.Forms.Button();
+            this.btn_rm_roomtype = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.rm_datagrideView = new System.Windows.Forms.DataGridView();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomMasterBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.btn_rm_refresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -61,12 +55,12 @@
             this.lbl_rm_roomNo = new System.Windows.Forms.Label();
             this.lbl_rm_roomType = new System.Windows.Forms.Label();
             this.btn_rm_save = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.roomMasterBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.roomMasterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.roomMasterBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.roomMasterBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomMasterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet4BindingSource)).BeginInit();
@@ -75,10 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roomTypeBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm_datagrideView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomMasterBindingSource5)).BeginInit();
             this.panel1.SuspendLayout();
@@ -103,22 +93,47 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
-            this.panel3.Controls.Add(this.pictureBox10);
-            this.panel3.Controls.Add(this.pictureBox9);
+            this.panel3.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btn_rm_reportmaster);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.btn_rm_bookingmaster);
-            this.panel3.Controls.Add(this.pictureBox7);
             this.panel3.Controls.Add(this.btn_rt_logout);
-            this.panel3.Controls.Add(this.pictureBox6);
             this.panel3.Controls.Add(this.btn_rm_dashboard);
             this.panel3.Controls.Add(this.btn_rm_roomtype);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(246, 703);
+            this.panel3.Size = new System.Drawing.Size(248, 703);
             this.panel3.TabIndex = 28;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(245, 43);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Admin Pannel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_rm_reportmaster
+            // 
+            this.btn_rm_reportmaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_rm_reportmaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_rm_reportmaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_rm_reportmaster.ForeColor = System.Drawing.Color.White;
+            this.btn_rm_reportmaster.Location = new System.Drawing.Point(0, 461);
+            this.btn_rm_reportmaster.Name = "btn_rm_reportmaster";
+            this.btn_rm_reportmaster.Size = new System.Drawing.Size(248, 43);
+            this.btn_rm_reportmaster.TabIndex = 4;
+            this.btn_rm_reportmaster.Text = "Report Master";
+            this.btn_rm_reportmaster.UseVisualStyleBackColor = false;
+            this.btn_rm_reportmaster.Click += new System.EventHandler(this.btn_rm_reportmaster_Click);
             // 
             // pictureBox1
             // 
@@ -130,100 +145,19 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(7, 431);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(65, 43);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 9;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(7, 354);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(65, 43);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 8;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(5, 293);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(67, 43);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(7, 216);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(67, 43);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 5;
-            this.pictureBox6.TabStop = false;
-            // 
-            // btn_rm_reportmaster
-            // 
-            this.btn_rm_reportmaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rm_reportmaster.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_rm_reportmaster.ForeColor = System.Drawing.Color.Black;
-            this.btn_rm_reportmaster.Location = new System.Drawing.Point(77, 431);
-            this.btn_rm_reportmaster.Name = "btn_rm_reportmaster";
-            this.btn_rm_reportmaster.Size = new System.Drawing.Size(166, 43);
-            this.btn_rm_reportmaster.TabIndex = 4;
-            this.btn_rm_reportmaster.Text = "Report Master";
-            this.btn_rm_reportmaster.UseVisualStyleBackColor = true;
-            this.btn_rm_reportmaster.Click += new System.EventHandler(this.btn_rm_reportmaster_Click);
-            // 
             // btn_rm_bookingmaster
             // 
-            this.btn_rm_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rm_bookingmaster.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rm_bookingmaster.ForeColor = System.Drawing.Color.Black;
-            this.btn_rm_bookingmaster.Location = new System.Drawing.Point(77, 354);
+            this.btn_rm_bookingmaster.BackColor = System.Drawing.Color.Transparent;
+            this.btn_rm_bookingmaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_rm_bookingmaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_rm_bookingmaster.ForeColor = System.Drawing.Color.White;
+            this.btn_rm_bookingmaster.Location = new System.Drawing.Point(0, 382);
             this.btn_rm_bookingmaster.Name = "btn_rm_bookingmaster";
-            this.btn_rm_bookingmaster.Size = new System.Drawing.Size(166, 43);
+            this.btn_rm_bookingmaster.Size = new System.Drawing.Size(248, 43);
             this.btn_rm_bookingmaster.TabIndex = 3;
             this.btn_rm_bookingmaster.Text = "Booking Master";
-            this.btn_rm_bookingmaster.UseVisualStyleBackColor = true;
+            this.btn_rm_bookingmaster.UseVisualStyleBackColor = false;
             this.btn_rm_bookingmaster.Click += new System.EventHandler(this.btn_bookingmaster_Click);
-            // 
-            // btn_rm_roomtype
-            // 
-            this.btn_rm_roomtype.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
-            this.btn_rm_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rm_roomtype.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_rm_roomtype.ForeColor = System.Drawing.Color.Black;
-            this.btn_rm_roomtype.Location = new System.Drawing.Point(78, 293);
-            this.btn_rm_roomtype.Name = "btn_rm_roomtype";
-            this.btn_rm_roomtype.Size = new System.Drawing.Size(165, 43);
-            this.btn_rm_roomtype.TabIndex = 1;
-            this.btn_rm_roomtype.Text = "Room Type";
-            this.btn_rm_roomtype.UseVisualStyleBackColor = false;
-            this.btn_rm_roomtype.Click += new System.EventHandler(this.btn_roommaster_Click);
-            // 
-            // btn_rm_dashboard
-            // 
-            this.btn_rm_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
-            this.btn_rm_dashboard.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btn_rm_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rm_dashboard.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rm_dashboard.ForeColor = System.Drawing.Color.Black;
-            this.btn_rm_dashboard.Location = new System.Drawing.Point(80, 216);
-            this.btn_rm_dashboard.Name = "btn_rm_dashboard";
-            this.btn_rm_dashboard.Size = new System.Drawing.Size(163, 43);
-            this.btn_rm_dashboard.TabIndex = 0;
-            this.btn_rm_dashboard.Text = "Dashboard";
-            this.btn_rm_dashboard.UseVisualStyleBackColor = false;
-            this.btn_rm_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
             // 
             // btn_rt_logout
             // 
@@ -235,14 +169,43 @@
             this.btn_rt_logout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_rt_logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_rt_logout.Font = new System.Drawing.Font("Verdana", 13.2F, System.Drawing.FontStyle.Bold);
-            this.btn_rt_logout.ForeColor = System.Drawing.Color.Black;
+            this.btn_rt_logout.ForeColor = System.Drawing.Color.Transparent;
             this.btn_rt_logout.Location = new System.Drawing.Point(0, 654);
             this.btn_rt_logout.Name = "btn_rt_logout";
-            this.btn_rt_logout.Size = new System.Drawing.Size(246, 49);
+            this.btn_rt_logout.Size = new System.Drawing.Size(248, 49);
             this.btn_rt_logout.TabIndex = 13;
             this.btn_rt_logout.Text = "Logout";
             this.btn_rt_logout.UseVisualStyleBackColor = false;
             this.btn_rt_logout.Click += new System.EventHandler(this.btn_rt_logout_Click_1);
+            // 
+            // btn_rm_dashboard
+            // 
+            this.btn_rm_dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.btn_rm_dashboard.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_rm_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_rm_dashboard.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_rm_dashboard.ForeColor = System.Drawing.Color.White;
+            this.btn_rm_dashboard.Location = new System.Drawing.Point(0, 216);
+            this.btn_rm_dashboard.Name = "btn_rm_dashboard";
+            this.btn_rm_dashboard.Size = new System.Drawing.Size(248, 43);
+            this.btn_rm_dashboard.TabIndex = 0;
+            this.btn_rm_dashboard.Text = "Dashboard";
+            this.btn_rm_dashboard.UseVisualStyleBackColor = false;
+            this.btn_rm_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
+            // 
+            // btn_rm_roomtype
+            // 
+            this.btn_rm_roomtype.BackColor = System.Drawing.Color.Transparent;
+            this.btn_rm_roomtype.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_rm_roomtype.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_rm_roomtype.ForeColor = System.Drawing.Color.White;
+            this.btn_rm_roomtype.Location = new System.Drawing.Point(0, 302);
+            this.btn_rm_roomtype.Name = "btn_rm_roomtype";
+            this.btn_rm_roomtype.Size = new System.Drawing.Size(248, 43);
+            this.btn_rm_roomtype.TabIndex = 1;
+            this.btn_rm_roomtype.Text = "Room Type";
+            this.btn_rm_roomtype.UseVisualStyleBackColor = false;
+            this.btn_rm_roomtype.Click += new System.EventHandler(this.btn_roommaster_Click);
             // 
             // label2
             // 
@@ -256,14 +219,8 @@
             // 
             // rm_datagrideView
             // 
-            this.rm_datagrideView.AutoGenerateColumns = false;
             this.rm_datagrideView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.rm_datagrideView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rm_datagrideView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.roomTypeDataGridViewTextBoxColumn,
-            this.roomNoDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.rm_datagrideView.DataSource = this.roomMasterBindingSource5;
             this.rm_datagrideView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.rm_datagrideView.Location = new System.Drawing.Point(13, 61);
             this.rm_datagrideView.Name = "rm_datagrideView";
@@ -274,38 +231,13 @@
             this.rm_datagrideView.TabIndex = 26;
             this.rm_datagrideView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rm_datagrideView_CellContentClick);
             // 
-            // roomTypeDataGridViewTextBoxColumn
-            // 
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.Width = 270;
-            // 
-            // roomNoDataGridViewTextBoxColumn
-            // 
-            this.roomNoDataGridViewTextBoxColumn.DataPropertyName = "RoomNo";
-            this.roomNoDataGridViewTextBoxColumn.HeaderText = "RoomNo";
-            this.roomNoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.roomNoDataGridViewTextBoxColumn.Name = "roomNoDataGridViewTextBoxColumn";
-            this.roomNoDataGridViewTextBoxColumn.Width = 270;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Width = 270;
-            // 
             // roomMasterBindingSource5
             // 
             this.roomMasterBindingSource5.DataMember = "RoomMaster";
-            this.roomMasterBindingSource5.DataSource = typeof(HotelManagementSystem.HotelManagementDataSet);
             // 
             // btn_rm_refresh
             // 
-            this.btn_rm_refresh.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_rm_refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
             this.btn_rm_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_rm_refresh.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_rm_refresh.FlatAppearance.BorderSize = 0;
@@ -337,7 +269,7 @@
             // 
             // btn_rm_clear
             // 
-            this.btn_rm_clear.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_rm_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
             this.btn_rm_clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_rm_clear.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_rm_clear.FlatAppearance.BorderSize = 0;
@@ -345,7 +277,7 @@
             this.btn_rm_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_rm_clear.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold);
             this.btn_rm_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_rm_clear.Location = new System.Drawing.Point(581, 154);
+            this.btn_rm_clear.Location = new System.Drawing.Point(597, 154);
             this.btn_rm_clear.Name = "btn_rm_clear";
             this.btn_rm_clear.Size = new System.Drawing.Size(137, 48);
             this.btn_rm_clear.TabIndex = 16;
@@ -398,14 +330,14 @@
             // 
             // btn_rm_save
             // 
-            this.btn_rm_save.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_rm_save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
             this.btn_rm_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_rm_save.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_rm_save.FlatAppearance.BorderSize = 0;
             this.btn_rm_save.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_rm_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rm_save.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_rm_save.ForeColor = System.Drawing.Color.Beige;
+            this.btn_rm_save.ForeColor = System.Drawing.Color.White;
             this.btn_rm_save.Location = new System.Drawing.Point(426, 154);
             this.btn_rm_save.Name = "btn_rm_save";
             this.btn_rm_save.Size = new System.Drawing.Size(137, 48);
@@ -413,15 +345,6 @@
             this.btn_rm_save.Text = "Save";
             this.btn_rm_save.UseVisualStyleBackColor = false;
             this.btn_rm_save.Click += new System.EventHandler(this.btn_rm_save_Click_1);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(246, 654);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1080, 49);
-            this.panel2.TabIndex = 29;
             // 
             // panel4
             // 
@@ -457,11 +380,20 @@
             // 
             this.roomMasterBindingSource3.DataSource = typeof(HotelManagementSystem.RoomMaster);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(248, 654);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1078, 49);
+            this.panel2.TabIndex = 29;
+            // 
             // RoomMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(155)))), ((int)(((byte)(211)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(1326, 703);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel4);
@@ -479,13 +411,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet4BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
-           
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm_datagrideView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomMasterBindingSource5)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -524,14 +451,9 @@
         private System.Windows.Forms.Label lbl_rm_roomNo;
         private System.Windows.Forms.Label lbl_rm_roomType;
         private System.Windows.Forms.Button btn_rm_save;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource roomMasterBindingSource5;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btn_rm_reportmaster;
         private System.Windows.Forms.Button btn_rm_bookingmaster;
         private System.Windows.Forms.Button btn_rm_roomtype;
@@ -540,5 +462,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }

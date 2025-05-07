@@ -23,56 +23,71 @@ namespace HotelManagementSystem
         /* Set Db Connection String here change it accordngly*/
         private string connectionString = "Server=DESKTOP-F7V7TOJ\\SQLEXPRESS;Database=HotelManagement;Integrated Security=True;";
 
+        private string _roomType;
+        private string _roomNumber;
 
-
-
-
-        public BookingMaster()
+        public BookingMaster(string roomType, string roomNumber)
         {
             InitializeComponent();
+            _roomType = roomType;
+            _roomNumber = roomNumber;
         }
-        private void LoadRoomTypes()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT DISTINCT RoomType FROM RoomMaster WHERE Status = 'Active'"; ; // Assuming table name is RoomMaster
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    comboBox_roomType.Items.Clear(); // Clear existing items
-                    while (reader.Read())
-                    {
-                        comboBox_roomType.Items.Add(reader["RoomType"].ToString());
-                    }
-                }
-            }
-        }
+        //private void LoadRoomTypes()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+        //        string query = "SELECT DISTINCT RoomType FROM RoomMaster WHERE Status = 'Active'"; ; // Assuming table name is RoomMaster
+        //        using (SqlCommand cmd = new SqlCommand(query, conn))
+        //        using (SqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            comboBox_roomType.Items.Clear(); // Clear existing items
+        //            while (reader.Read())
+        //            {
+        //                comboBox_roomType.Items.Add(reader["RoomType"].ToString());
+        //            }
+        //        }
+        //    }
+        //}
 
 
 
         private void BookingMaster_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hotelManagementDataSet1.BookingMaster' table. You can move, or remove it, as needed.
-            // this.bookingMasterTableAdapter.Fill(this.hotelManagementDataSet1.BookingMaster);
-            LoadRoomTypes();
-            comboBox_roomType.SelectedIndexChanged += comboBox_roomType_SelectedIndexChanged;
             LoadGenderDropDown();
             LoadGuestData();
-            if (comboBox_roomType.Items.Count > 0)
-            {
-                comboBox_roomType.SelectedIndex = 0;
-            }
-            // to disply tables from db
-
-            // LoadBookingData();
-
-            comboBox_roomType.SelectedIndexChanged += comboBox_roomType_SelectedIndexChanged;
-
-            AddDeleteButtonColumn();
+            StyleDataGridView();
+            //AddDeleteButtonColumn();
             SetTab();
 
 
+            txtRoomType.Text = _roomType;
+            txtRoomNumber.Text = _roomNumber;
+
+        }
+        private void StyleDataGridView()
+        {
+            dataGridViewBookings.EnableHeadersVisualStyles = false;
+
+            // Header style
+            dataGridViewBookings.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGreen;
+            dataGridViewBookings.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridViewBookings.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 12F );
+            dataGridViewBookings.ColumnHeadersHeight = 40;
+
+            // Row style
+            dataGridViewBookings.DefaultCellStyle.BackColor = Color.White;
+            dataGridViewBookings.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridViewBookings.DefaultCellStyle.Font = new Font("Verdana", 10F, FontStyle.Regular);
+            dataGridViewBookings.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
+            dataGridViewBookings.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // Grid settings
+            dataGridViewBookings.RowTemplate.Height = 35;
+            dataGridViewBookings.GridColor = Color.LightGray;
+            dataGridViewBookings.BorderStyle = BorderStyle.Fixed3D;
+            //dataGridViewBookings.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dataGridViewBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
 
@@ -87,8 +102,8 @@ namespace HotelManagementSystem
             textBox_document.TabIndex = 5;
             btn_saveClk.TabIndex = 6;
             txtCapacity.TabIndex = 7;
-            comboBox_roomType.TabIndex = 8;
-            comboBox_roomNumber.TabIndex = 9;
+            txtRoomNumber.TabIndex = 8;
+            txtRoomType.TabIndex = 9;
             //textbox_bm.TabIndex = 9;
             
             btn_bm_save.TabIndex = 10;
@@ -127,8 +142,9 @@ namespace HotelManagementSystem
         private void bookingMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            BookingMaster bookingMaster = new BookingMaster();
-            bookingMaster.Show();
+           RoomStatusForm roomStatusForm = new RoomStatusForm();
+            roomStatusForm.Show();
+
         }
 
 
@@ -149,110 +165,6 @@ namespace HotelManagementSystem
 
         /*onclick save btn*/
 
-        //private void btn_bm_save_Click(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtbox_firstName.Text) ||
-        //        string.IsNullOrWhiteSpace(txtbox_lastName.Text) ||
-        //        string.IsNullOrWhiteSpace(textbox_amobileNo.Text) ||
-        //        string.IsNullOrWhiteSpace(txtbox_email.Text) ||
-        //        string.IsNullOrWhiteSpace(textBox_document.Text) ||
-        //        string.IsNullOrWhiteSpace(comboBox_roomType.Text) ||
-        //        string.IsNullOrWhiteSpace(comboBox_roomNumber.Text) ||
-        //        string.IsNullOrWhiteSpace(txtCapacity.Text))
-        //    {
-        //        MessageBox.Show("All fields are required. Please fill in all details.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    if (!Regex.IsMatch(txtbox_firstName.Text, @"^[A-Za-z\s]+$") ||
-        //        !Regex.IsMatch(txtbox_lastName.Text, @"^[A-Za-z\s]+$"))
-        //    {
-        //        MessageBox.Show("First Name and last name must not contain numbers.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    if (!Regex.IsMatch(txtbox_email.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-        //    {
-        //        MessageBox.Show("Invalid email format. Please enter a valid email.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    if (!Regex.IsMatch(textbox_amobileNo.Text, @"^\d{10}$"))
-        //    {
-        //        MessageBox.Show("Mobile number must be exactly 10 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    // Capacity Validation
-        //    if (!int.TryParse(txtCapacity.Text, out int capacity) || capacity <= 0)
-        //    {
-        //        MessageBox.Show("Invalid room capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    string selectedRoom = comboBox_roomNumber.SelectedItem?.ToString();
-
-        //    if (string.IsNullOrEmpty(selectedRoom))
-        //    {
-        //        MessageBox.Show("Please select a valid room number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(connectionString))
-        //        {
-        //            conn.Open();
-
-        //            // Step 1: Count guests already booked in selected room
-        //            string countQuery = "SELECT COUNT(*) FROM BookingMaster WHERE RoomNumber = @RoomNumber AND Status = 'Active'";
-        //            SqlCommand countCmd = new SqlCommand(countQuery, conn);
-        //            countCmd.Parameters.AddWithValue("@RoomNumber", selectedRoom);
-        //            int currentGuestCount = (int)countCmd.ExecuteScalar();
-
-        //            if (currentGuestCount >= capacity)
-        //            {
-        //                MessageBox.Show("Room is full. Kindly select another room.", "Room Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                return;
-        //            }
-
-        //            // Step 2: Prepare to insert booking
-        //            byte[] documentData = null;
-        //            if (!string.IsNullOrEmpty(textBox_document.Text) && File.Exists(textBox_document.Text))
-        //            {
-        //                documentData = File.ReadAllBytes(textBox_document.Text);
-        //            }
-
-        //            string insertQuery = @"INSERT INTO BookingMaster 
-        //        (GuestFirstName, GuestLastName, GuestMobileNo, Gender, Email, GovDocument, GovDocumentData, GuestCount, TotalAllocatedRoom, RoomType, RoomNumber, Status, BookingDate)
-        //        VALUES (@FirstName, @LastName, @MobileNo, @Gender, @Email, @GovDocument, @GovDocumentData, 1, 1, @RoomType, @RoomNumber, 'Active', @BookingDate)";
-
-        //            using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
-        //            {
-        //                cmd.Parameters.AddWithValue("@FirstName", txtbox_firstName.Text);
-        //                cmd.Parameters.AddWithValue("@LastName", txtbox_lastName.Text);
-        //                cmd.Parameters.AddWithValue("@MobileNo", textbox_amobileNo.Text);
-        //                cmd.Parameters.AddWithValue("@Gender", comboBox_gender.SelectedItem?.ToString() ?? "Other");
-        //                cmd.Parameters.AddWithValue("@Email", txtbox_email.Text);
-        //                cmd.Parameters.AddWithValue("@GovDocument", textBox_document.Text);
-        //                cmd.Parameters.AddWithValue("@GovDocumentData", documentData ?? (object)DBNull.Value);
-        //                cmd.Parameters.AddWithValue("@RoomType", comboBox_roomType.SelectedItem?.ToString() ?? "Standard");
-        //                cmd.Parameters.AddWithValue("@RoomNumber", selectedRoom);
-        //                cmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
-
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //        }
-
-        //        MessageBox.Show("Guest saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LoadGuestData();
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
 
 
@@ -263,9 +175,9 @@ namespace HotelManagementSystem
                 string.IsNullOrWhiteSpace(textbox_amobileNo.Text) ||
                 string.IsNullOrWhiteSpace(txtbox_email.Text) ||
                 string.IsNullOrWhiteSpace(textBox_document.Text) ||
-                string.IsNullOrWhiteSpace(comboBox_roomType.Text) ||
-                string.IsNullOrWhiteSpace(comboBox_roomNumber.Text) ||
-                string.IsNullOrWhiteSpace(txtCapacity.Text))
+                string.IsNullOrWhiteSpace(txtCapacity.Text) ||
+                string.IsNullOrWhiteSpace(txtRoomType.Text) ||
+                string.IsNullOrWhiteSpace(txtRoomNumber.Text))
             {
                 MessageBox.Show("All fields are required. Please fill in all details.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -274,7 +186,7 @@ namespace HotelManagementSystem
             if (!Regex.IsMatch(txtbox_firstName.Text, @"^[A-Za-z\s]+$") ||
                 !Regex.IsMatch(txtbox_lastName.Text, @"^[A-Za-z\s]+$"))
             {
-                MessageBox.Show("First Name and last name must not contain numbers.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("First Name and Last Name must contain only letters.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -290,39 +202,30 @@ namespace HotelManagementSystem
                 return;
             }
 
-            if (!int.TryParse(txtCapacity.Text, out int capacity) || capacity <= 0)
-            {
-                MessageBox.Show("Invalid room capacity.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string selectedRoom = comboBox_roomNumber.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedRoom))
-            {
-                MessageBox.Show("Please select a valid room number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             try
             {
+                string selectedRoom = txtRoomNumber.Text;
+                int capacity = int.Parse(txtCapacity.Text);
+
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
                     // Check guest capacity in the room
-                    string countQuery = "SELECT COUNT(*) FROM BookingMaster WHERE RoomNumber = @RoomNumber AND Status = 'Active'";
-                    SqlCommand countCmd = new SqlCommand(countQuery, conn);
-                    countCmd.Parameters.AddWithValue("@RoomNumber", selectedRoom);
-                    int currentGuestCount = (int)countCmd.ExecuteScalar();
-
-                    if (currentGuestCount >= capacity)
+                    string countQuery = "SELECT COUNT(*) FROM BookingMaster WHERE RoomNumber = @RoomNumber AND Status = 'CheckIn'";
+                    using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
                     {
-                        MessageBox.Show("Room is full. Kindly select another room.", "Room Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        countCmd.Parameters.AddWithValue("@RoomNumber", selectedRoom);
+                        int currentGuestCount = (int)countCmd.ExecuteScalar();
+
+                        if (currentGuestCount >= capacity)
+                        {
+                            MessageBox.Show("Room is full. Kindly select another room.", "Room Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
 
-                    // === Save uploaded document to specific folder ===
+                    // Save uploaded document
                     string documentPath = textBox_document.Text;
                     string savedDocPath = null;
                     byte[] documentData = null;
@@ -330,19 +233,20 @@ namespace HotelManagementSystem
                     if (!string.IsNullOrEmpty(documentPath) && File.Exists(documentPath))
                     {
                         string folderPath = @"C:\Users\saahil's24\Desktop\New folder (2)";
-                        Directory.CreateDirectory(folderPath); // Create if not exists
+                        Directory.CreateDirectory(folderPath);
 
                         string fileName = Path.GetFileName(documentPath);
                         string uniqueFileName = $"{Guid.NewGuid()}_{fileName}";
                         savedDocPath = Path.Combine(folderPath, uniqueFileName);
 
-                        File.Copy(documentPath, savedDocPath, true); // Copy file
-                        documentData = File.ReadAllBytes(savedDocPath); // Read new file
+                        File.Copy(documentPath, savedDocPath, true);
+                        documentData = File.ReadAllBytes(savedDocPath);
                     }
 
+                    // Insert guest into BookingMaster
                     string insertQuery = @"INSERT INTO BookingMaster 
-            (GuestFirstName, GuestLastName, GuestMobileNo, Gender, Email, GovDocument, GovDocumentData, GuestCount, TotalAllocatedRoom, RoomType, RoomNumber, Status, BookingDate)
-            VALUES (@FirstName, @LastName, @MobileNo, @Gender, @Email, @GovDocument, @GovDocumentData, 1, 1, @RoomType, @RoomNumber, 'Active', @BookingDate)";
+                (GuestFirstName, GuestLastName, GuestMobileNo, Gender, Email, GovDocument, GovDocumentData, GuestCount, TotalAllocatedRoom, RoomType, RoomNumber, Status, BookingDate)
+                VALUES (@FirstName, @LastName, @MobileNo, @Gender, @Email, @GovDocument, @GovDocumentData, 1, 1, @RoomType, @RoomNumber, 'CheckIn', @BookingDate)";
 
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
@@ -351,10 +255,10 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@MobileNo", textbox_amobileNo.Text);
                         cmd.Parameters.AddWithValue("@Gender", comboBox_gender.SelectedItem?.ToString() ?? "Other");
                         cmd.Parameters.AddWithValue("@Email", txtbox_email.Text);
-                        cmd.Parameters.AddWithValue("@GovDocument", savedDocPath ?? (object)DBNull.Value); // save the new path
+                        cmd.Parameters.AddWithValue("@GovDocument", savedDocPath ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@GovDocumentData", documentData ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@RoomType", comboBox_roomType.SelectedItem?.ToString() ?? "Standard");
-                        cmd.Parameters.AddWithValue("@RoomNumber", selectedRoom);
+                        cmd.Parameters.AddWithValue("@RoomType", txtRoomType.Text);
+                        cmd.Parameters.AddWithValue("@RoomNumber", txtRoomNumber.Text);
                         cmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
 
                         cmd.ExecuteNonQuery();
@@ -377,7 +281,10 @@ namespace HotelManagementSystem
         {
             try
             {
-                string query = "SELECT * FROM BookingMaster WHERE Status = 'Active'";
+                //select GuestFirstName,GuestLastName,GuestMobileNo,Gender,RoomType,RoomNumber,Status,BookingDae,CheckoutDate from BookingMaster;
+               
+                string query = "SELECT GuestFirstName,GuestLastName,GuestMobileNo,Gender,Email,RoomType,RoomNumber" +
+                    ", Status,BookingDate,CheckoutDate FROM BookingMaster WHERE Status = 'CheckIn'";
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -447,28 +354,28 @@ namespace HotelManagementSystem
         /*DatagrideView All the code like update ,Inactive Record*/
         private void dataGridViewBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewBookings.Columns["Action"].Index && e.RowIndex >= 0)
-            {
-                string roomTypeName = dataGridViewBookings.Rows[e.RowIndex].Cells["GuestFirstName"].Value.ToString();
+        //    if (e.ColumnIndex == dataGridViewBookings.Columns["Action"].Index && e.RowIndex >= 0)
+        //    {
+        //        string roomTypeName = dataGridViewBookings.Rows[e.RowIndex].Cells["GuestFirstName"].Value.ToString();
 
-                /*Code For MsgBox To Click On Delete Btn To popup  msg */
-                DialogResult result = MessageBox.Show("Do You Want To Check Out?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //        /*Code For MsgBox To Click On Delete Btn To popup  msg */
+        //        DialogResult result = MessageBox.Show("Do You Want To Check Out?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
-                if (result == DialogResult.OK)
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        string query = "UPDATE BookingMaster SET Status = 'Inactive',CheckoutDate=@CheckoutDate WHERE GuestFirstName = @GuestFirstName";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@GuestFirstName", roomTypeName);
-                        cmd.Parameters.AddWithValue("@CheckoutDate", DateTime.Now);
-                        cmd.ExecuteNonQuery();
+        //        if (result == DialogResult.OK)
+        //        {
+        //            using (SqlConnection conn = new SqlConnection(connectionString))
+        //            {
+        //                conn.Open();
+        //                string query = "UPDATE BookingMaster SET Status = 'CheckOut',CheckoutDate=@CheckoutDate WHERE GuestFirstName = @GuestFirstName";
+        //                SqlCommand cmd = new SqlCommand(query, conn);
+        //                cmd.Parameters.AddWithValue("@GuestFirstName", roomTypeName);
+        //                cmd.Parameters.AddWithValue("@CheckoutDate", DateTime.Now);
+        //                cmd.ExecuteNonQuery();
 
-                        dataGridViewBookings.Rows.RemoveAt(e.RowIndex); // Remove from DataGridView
-                    }
-                }
-            }
+        //                dataGridViewBookings.Rows.RemoveAt(e.RowIndex); // Remove from DataGridView
+        //            }
+        //        }
+        //    }
         }
 
 
@@ -493,7 +400,7 @@ namespace HotelManagementSystem
                     comboBox_gender.SelectedItem = reader["Gender"].ToString();
                     txtbox_email.Text = reader["Email"].ToString();
                     textBox_document.Text = reader["GovDocument"].ToString();
-                    comboBox_roomType.SelectedItem = reader["RoomType"].ToString();
+                    //comboBox_roomType.SelectedItem = reader["RoomType"].ToString();
                     // textbox_bm.Text = reader["RoomNumber"].ToString();
                 }
                 else
@@ -541,9 +448,7 @@ namespace HotelManagementSystem
                 cmd.Parameters.AddWithValue("@Gender", comboBox_gender.SelectedItem?.ToString() ?? "Other");
                 cmd.Parameters.AddWithValue("@Email", txtbox_email.Text);
                 cmd.Parameters.AddWithValue("@GovDocument", textBox_document.Text);
-                cmd.Parameters.AddWithValue("@RoomType", comboBox_roomType.SelectedItem?.ToString() ?? "Standard");
-                cmd.Parameters.AddWithValue("@RoomNumber", comboBox_roomNumber.SelectedItem?.ToString() ?? "Standard");
-
+               
                 // cmd.Parameters.AddWithValue("@RoomNumber", textbox_bm.Text);
                 cmd.Parameters.AddWithValue("@SearchValue", txtbox_search.Text.Trim());
 
@@ -577,31 +482,6 @@ namespace HotelManagementSystem
             LoadGuestData();
         }
 
-        private void comboBox_roomType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedRoomType = comboBox_roomType.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(selectedRoomType))
-                return;
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT RoomNo FROM RoomMaster WHERE RoomType = @RoomType AND Status = 'Active'";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@RoomType", selectedRoomType);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        comboBox_roomNumber.Items.Clear(); // Clear previous items
-                        while (reader.Read())
-                        {
-                            comboBox_roomNumber.Items.Add(reader["RoomNo"].ToString());
-                        }
-                    }
-                }
-            }
-        }
 
 
         
@@ -629,37 +509,29 @@ namespace HotelManagementSystem
         }
 
         /*Add Inactive btn in datgride view & also set the prop to it*/
-        private void AddDeleteButtonColumn()
-        {
-            if (!dataGridViewBookings.Columns.Contains("Action"))
-            {
-                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
-                deleteButton.Name = "Action";
-                deleteButton.HeaderText = "Action";
-                deleteButton.Text = "Check Out";
-                deleteButton.UseColumnTextForButtonValue = true;
-                deleteButton.DefaultCellStyle.BackColor = Color.Red;
-                //deleteButton.DefaultCellStyle.ForeColor = Color.Red;
-                deleteButton.DefaultCellStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
-                deleteButton.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        //private void AddDeleteButtonColumn()
+        //{
+        //    if (!dataGridViewBookings.Columns.Contains("Action"))
+        //    {
+        //        DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+        //        deleteButton.Name = "Action";
+        //        deleteButton.HeaderText = "Action";
+        //        deleteButton.Text = "Check Out";
+        //        deleteButton.UseColumnTextForButtonValue = true;
+        //        deleteButton.DefaultCellStyle.BackColor = Color.Red;
+        //        //deleteButton.DefaultCellStyle.ForeColor = Color.Red;
+        //        deleteButton.DefaultCellStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+        //        deleteButton.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                // dataGridViewBookings.Columns.Add(deleteButton);
-                dataGridViewBookings.Columns.Add(deleteButton);
-            }
-        }
+        //        // dataGridViewBookings.Columns.Add(deleteButton);
+        //        dataGridViewBookings.Columns.Add(deleteButton);
+        //    }
+        //}
 
         /*Logout btn */
         private void button1_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            //if (result == DialogResult.Yes)
-            //{
-            //    SignUpSignIn signUpSignIn = new SignUpSignIn();
-            //    signUpSignIn.WindowState = this.WindowState;
-            //    signUpSignIn.Show();
-            //    this.Close();
-            //}
+            
             this.Hide(); // Hide current form
             SignIn signIn = new SignIn();
             
@@ -675,7 +547,7 @@ namespace HotelManagementSystem
         {
             this.Hide();
             Dashboard dashboard = new Dashboard();
-            //dashboard.WindowState = this.WindowState;
+            dashboard.WindowState = this.WindowState;
             dashboard.Show();
         }
 
@@ -713,6 +585,19 @@ namespace HotelManagementSystem
                 signIn.Show();
                 this.Close();
             }
+        }
+
+        public BookingMaster(string roomNo)
+        {
+            InitializeComponent();
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RoomStatusForm roomStatusForm   = new RoomStatusForm();
+            roomStatusForm.Show();
+
         }
     }
 }

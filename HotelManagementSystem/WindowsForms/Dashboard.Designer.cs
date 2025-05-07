@@ -36,8 +36,10 @@
             this.btn_dash_roomType = new System.Windows.Forms.Button();
             this.dash_btn_dashboard = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -53,7 +55,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -73,14 +79,14 @@
             // 
             // btn_dash_bookingMaster
             // 
-            this.btn_dash_bookingMaster.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_dash_bookingMaster.BackColor = System.Drawing.Color.Transparent;
             this.btn_dash_bookingMaster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_dash_bookingMaster.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_dash_bookingMaster.FlatAppearance.BorderSize = 0;
             this.btn_dash_bookingMaster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_bookingMaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_dash_bookingMaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_dash_bookingMaster.ForeColor = System.Drawing.Color.Black;
+            this.btn_dash_bookingMaster.ForeColor = System.Drawing.Color.White;
             this.btn_dash_bookingMaster.Location = new System.Drawing.Point(79, 172);
             this.btn_dash_bookingMaster.Name = "btn_dash_bookingMaster";
             this.btn_dash_bookingMaster.Size = new System.Drawing.Size(214, 48);
@@ -91,14 +97,14 @@
             // 
             // btn_dash_reportMaster
             // 
-            this.btn_dash_reportMaster.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_dash_reportMaster.BackColor = System.Drawing.Color.Transparent;
             this.btn_dash_reportMaster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_dash_reportMaster.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_dash_reportMaster.FlatAppearance.BorderSize = 0;
             this.btn_dash_reportMaster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_reportMaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_dash_reportMaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_dash_reportMaster.ForeColor = System.Drawing.Color.Black;
+            this.btn_dash_reportMaster.ForeColor = System.Drawing.Color.White;
             this.btn_dash_reportMaster.Location = new System.Drawing.Point(38, 174);
             this.btn_dash_reportMaster.Name = "btn_dash_reportMaster";
             this.btn_dash_reportMaster.Size = new System.Drawing.Size(263, 48);
@@ -109,14 +115,14 @@
             // 
             // btn_dash_roomMaster
             // 
-            this.btn_dash_roomMaster.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_dash_roomMaster.BackColor = System.Drawing.Color.Transparent;
             this.btn_dash_roomMaster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_dash_roomMaster.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_dash_roomMaster.FlatAppearance.BorderSize = 0;
             this.btn_dash_roomMaster.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_roomMaster.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_dash_roomMaster.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_dash_roomMaster.ForeColor = System.Drawing.Color.Black;
+            this.btn_dash_roomMaster.ForeColor = System.Drawing.Color.White;
             this.btn_dash_roomMaster.Location = new System.Drawing.Point(58, 173);
             this.btn_dash_roomMaster.Name = "btn_dash_roomMaster";
             this.btn_dash_roomMaster.Size = new System.Drawing.Size(235, 48);
@@ -127,15 +133,15 @@
             // 
             // btn_dash_back
             // 
-            this.btn_dash_back.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_dash_back.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_dash_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_dash_back.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_dash_back.FlatAppearance.BorderSize = 0;
             this.btn_dash_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_dash_back.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dash_back.ForeColor = System.Drawing.Color.Black;
-            this.btn_dash_back.Location = new System.Drawing.Point(1074, 588);
+            this.btn_dash_back.ForeColor = System.Drawing.Color.White;
+            this.btn_dash_back.Location = new System.Drawing.Point(1027, 620);
             this.btn_dash_back.Name = "btn_dash_back";
             this.btn_dash_back.Size = new System.Drawing.Size(195, 43);
             this.btn_dash_back.TabIndex = 16;
@@ -145,17 +151,17 @@
             // 
             // btn_dash_roomType
             // 
-            this.btn_dash_roomType.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_dash_roomType.BackColor = System.Drawing.Color.Transparent;
             this.btn_dash_roomType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_dash_roomType.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_dash_roomType.FlatAppearance.BorderSize = 0;
             this.btn_dash_roomType.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_dash_roomType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_dash_roomType.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.btn_dash_roomType.ForeColor = System.Drawing.Color.Black;
-            this.btn_dash_roomType.Location = new System.Drawing.Point(90, 174);
+            this.btn_dash_roomType.ForeColor = System.Drawing.Color.White;
+            this.btn_dash_roomType.Location = new System.Drawing.Point(38, 172);
             this.btn_dash_roomType.Name = "btn_dash_roomType";
-            this.btn_dash_roomType.Size = new System.Drawing.Size(195, 48);
+            this.btn_dash_roomType.Size = new System.Drawing.Size(263, 48);
             this.btn_dash_roomType.TabIndex = 14;
             this.btn_dash_roomType.Text = "Room Type";
             this.btn_dash_roomType.UseVisualStyleBackColor = false;
@@ -163,17 +169,17 @@
             // 
             // dash_btn_dashboard
             // 
-            this.dash_btn_dashboard.BackColor = System.Drawing.Color.Gainsboro;
+            this.dash_btn_dashboard.BackColor = System.Drawing.Color.Transparent;
             this.dash_btn_dashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.dash_btn_dashboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dash_btn_dashboard.FlatAppearance.BorderSize = 0;
             this.dash_btn_dashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dash_btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.dash_btn_dashboard.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.dash_btn_dashboard.ForeColor = System.Drawing.Color.Black;
-            this.dash_btn_dashboard.Location = new System.Drawing.Point(60, 174);
+            this.dash_btn_dashboard.ForeColor = System.Drawing.Color.White;
+            this.dash_btn_dashboard.Location = new System.Drawing.Point(46, 174);
             this.dash_btn_dashboard.Name = "dash_btn_dashboard";
-            this.dash_btn_dashboard.Size = new System.Drawing.Size(181, 48);
+            this.dash_btn_dashboard.Size = new System.Drawing.Size(235, 48);
             this.dash_btn_dashboard.TabIndex = 13;
             this.dash_btn_dashboard.Text = "Dashboard";
             this.dash_btn_dashboard.UseVisualStyleBackColor = false;
@@ -181,10 +187,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Controls.Add(this.panel8);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(218)))), ((int)(((byte)(239)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.btn_dash_back);
-            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
@@ -192,35 +198,66 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(25, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1296, 666);
+            this.panel1.Size = new System.Drawing.Size(1312, 666);
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel8
+            // panel9
             // 
-            this.panel8.BackColor = System.Drawing.Color.SlateBlue;
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1296, 29);
-            this.panel8.TabIndex = 25;
+            this.panel9.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel9.Controls.Add(this.pictureBox11);
+            this.panel9.Controls.Add(this.pictureBox12);
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Location = new System.Drawing.Point(869, 363);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(353, 225);
+            this.panel9.TabIndex = 26;
             // 
-            // panel7
+            // pictureBox11
             // 
-            this.panel7.BackColor = System.Drawing.Color.SlateBlue;
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 637);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1296, 29);
-            this.panel7.TabIndex = 24;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(205, 5);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(130, 151);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 15;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(10, 5);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(189, 151);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 14;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(79, 173);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(214, 48);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Admin Pannel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.Teal;
+            this.panel6.BackColor = System.Drawing.Color.ForestGreen;
             this.panel6.Controls.Add(this.pictureBox9);
             this.panel6.Controls.Add(this.pictureBox10);
             this.panel6.Controls.Add(this.btn_dash_reportMaster);
-            this.panel6.Location = new System.Drawing.Point(692, 372);
+            this.panel6.Location = new System.Drawing.Point(436, 363);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(353, 225);
             this.panel6.TabIndex = 23;
@@ -238,7 +275,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(10, 5);
+            this.pictureBox10.Location = new System.Drawing.Point(10, 6);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(189, 151);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -247,13 +284,13 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel5.BackColor = System.Drawing.Color.ForestGreen;
             this.panel5.Controls.Add(this.pictureBox7);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.btn_dash_roomMaster);
-            this.panel5.Location = new System.Drawing.Point(282, 373);
+            this.panel5.Location = new System.Drawing.Point(29, 363);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(353, 225);
+            this.panel5.Size = new System.Drawing.Size(341, 225);
             this.panel5.TabIndex = 22;
             // 
             // pictureBox7
@@ -278,11 +315,11 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel4.BackColor = System.Drawing.Color.ForestGreen;
             this.panel4.Controls.Add(this.pictureBox5);
             this.panel4.Controls.Add(this.pictureBox6);
             this.panel4.Controls.Add(this.btn_dash_bookingMaster);
-            this.panel4.Location = new System.Drawing.Point(869, 84);
+            this.panel4.Location = new System.Drawing.Point(869, 79);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(353, 225);
             this.panel4.TabIndex = 21;
@@ -309,7 +346,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Teal;
+            this.panel3.BackColor = System.Drawing.Color.ForestGreen;
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Controls.Add(this.btn_dash_roomType);
@@ -340,7 +377,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkOrchid;
+            this.panel2.BackColor = System.Drawing.Color.ForestGreen;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.dash_btn_dashboard);
@@ -369,11 +406,22 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(17, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1145, 34);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Welcome To Dashboard.Click On The Bellow Butten To Open The Forms";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1362, 703);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.CornflowerBlue;
@@ -383,6 +431,10 @@
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -426,7 +478,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

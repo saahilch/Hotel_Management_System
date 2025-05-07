@@ -1,4 +1,5 @@
-﻿using HotelManagementSystem.Reports;
+﻿using HotelManagementSystem.FormReports;
+using HotelManagementSystem.Reports;
 using HotelManagementSystem.WindowsForms;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace HotelManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Report());
+            Application.Run(new SignIn());
         }
     }
 }
